@@ -12,6 +12,10 @@
 
 using namespace std;
 
+using lli = long long int;
+using llu = unsigned long long int;
+using ld = long double;
+
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

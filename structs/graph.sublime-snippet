@@ -1,0 +1,27 @@
+<snippet>
+	<content><![CDATA[
+//#define GRAPH_ORIENTED
+//#define GRAPH_TREE
+//#define GRAPH_PONDERE
+
+const int MAX_NODES = 1e5;
+const int MAX_ARCS = 1e5;
+const int IDS_FIRST = 0; // Si les indices commencent a 1 dans l'entree, permet de decaler
+
+struct Arc {
+	int dest;
+
+	#ifdef GRAPH_PONDERE
+	int size;
+	#endif
+};
+
+vector<Arc> voisins[MAX_NODES];
+int nbNodes, nbArcs;
+
+
+
+]]></content>
+	<tabTrigger>struct_graph</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>
