@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+#define NB_MOVES 4
+
+struct Pos {
+	int lig, col;
+};
+Pos operator + (const Pos& a, const Pos& b) { return {a.lig + b.lig, a.col + b.col}; }
+Pos operator - (const Pos& a, const Pos& b) { return {a.lig - b.lig, a.col - b.col}; }
+
+#if NB_MOVES == 4
+Pos moves[4] = {{0, 1}, {-1, 0}, {0, -1}, {1, 0}};
+#elif NB_MOVES == 8
+Pos moves[8] = {{0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}};
+#else
+Pos moves[4] = {{-1, 1} {-1, -1}, {1, -1}, {1, 1}};
+#endif
+
+
+]]></content>
+	<tabTrigger>str_pos</tabTrigger>
+	<scope>source.c++</scope>
+</snippet>

@@ -31,6 +31,6 @@ bool graph_contain_cycle() {
 
 
 ]]></content>
-	<tabTrigger>algo_graph_contain_cycle</tabTrigger>
+	<tabTrigger>algo_contain_cycle</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

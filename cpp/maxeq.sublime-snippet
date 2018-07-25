@@ -1,12 +1,11 @@
 <snippet>
 	<content><![CDATA[
-using lli = long long int;
-using ulli = unsigned long long int;
+template<class T> void maxeq(T& a, T b) { a = max(a, b); }
 
 
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>pretypedef</tabTrigger>
+	<tabTrigger>def_functions</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<scope>source.c++</scope> 
 </snippet>

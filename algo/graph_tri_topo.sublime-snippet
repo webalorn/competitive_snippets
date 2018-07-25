@@ -36,6 +36,6 @@ vector<int> tri_topo() {
 
 
 ]]></content>
-	<tabTrigger>algo_graph_tri_topo</tabTrigger>
+	<tabTrigger>algo_tri_topo</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>

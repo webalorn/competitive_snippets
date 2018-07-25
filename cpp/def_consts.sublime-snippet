@@ -1,12 +1,15 @@
-	<snippet>
+<snippet>
 	<content><![CDATA[
-#ifdef on_local
-$0
-#else
-#endif
+using lli = long long int;
+using llu = unsigned long long int;
+using ld = long double;
+
+const int INF = 1000*1000*1000;
+
+
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	<tabTrigger>islocal</tabTrigger>
+	<tabTrigger>def_consts</tabTrigger>
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<scope>source.c++</scope> 
 </snippet>

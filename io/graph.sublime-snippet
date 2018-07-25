@@ -7,15 +7,12 @@ void read_graph() {
 		scanf("%d%d", &node1, &node2);
 		node1 -= IDS_FIRST; node2 -= IDS_FIRST;
 		voisins[node1].push_back({node2});
-
-		#ifndef GRAPH_ORIENTED
-		voisins[node2].push_back({node1});
-		#endif
+		graph_parents[node2].push_back({node1});
 	}
 }
 
 
 ]]></content>
-	<tabTrigger>io_graph</tabTrigger>
+	<tabTrigger>read_graph</tabTrigger>
 	<scope>source.c++</scope>
 </snippet>
