@@ -16,9 +16,9 @@ struct Arc {
 	#endif
 };
 
-vector<Arc> voisins[MAX_NODES];
+vector<Arc> voisins[MAX_NODES+IDS_FIRST];
 #ifdef GRAPH_ORIENTED
-vector<Arc> graph_parents[MAX_NODES];
+vector<Arc> graph_parents[MAX_NODES+IDS_FIRST];
 #else
 auto &graph_parents = voisins;
 #endif

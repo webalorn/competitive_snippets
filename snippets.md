@@ -1,18 +1,20 @@
 ## cpp
 
 - Utility
-	- includes
-	- main_default
-	- islocal
-	- usaco
-	- sync_false
+  - includes
+  - main_default
+  - islocal (compiler avec -Don_local)
+  - usaco // Read and write in files
+  - sync_false
 - C++ shortcurts
-	- foru (itérer ascendant)
-	- ford (itérer descendant)
-	- forv (itérer dans une structure)
+  - foru (itérer ascendant)
+  - ford (itérer descendant)
+  - forel (itérer dans une structure)
 - Definitions
-	- def_consts
-	- def_types
+  - def_consts
+  - def_types
+- Contest-specific templates
+  - battleDev_main
 
 ## Structs
 - str_graph
@@ -23,11 +25,21 @@
 - read_graph_pondere
 
 ## Algo
-- Graphs
-	- algo_bellman_ford
-	- algo_contain_cycle
-	- algo_dfs
-	- algo_dijkstra
-	- algo_remonte_dijkstra
-	- algo_floyd_warshall
-	- algo_tri_topo
+- General
+  - algo_union_find
+  - algo_dicho // Dichotomie
+- Graphs (require str_graph)
+  - algo_bellman_ford
+  - algo_contain_cycle
+  - algo_dfs
+  - algo_dijkstra
+  - algo_remonte_dijkstra
+  - algo_floyd_warshall
+  - algo_tri_topo
+- Maths
+  - math_usual // pgcd, ppm, genNPrimes, genPrimesUnder
+
+## C++ useful functions
+  - [string].substr(start, size) // Get a substring
+  - to_string(value) // something to string
+  - stoi(string, pos=0, base=10) // string to int

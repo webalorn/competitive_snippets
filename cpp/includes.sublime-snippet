@@ -1,6 +1,6 @@
 <snippet>
 	<content><![CDATA[
-#include <bits/stdc++.h>
+#include "bits/stdc++.h"
 using namespace std;
 
 #define pb push_back
@@ -23,6 +23,7 @@ inline void pi(const string& val) {printf("%s", val.c_str());}inline void pi(con
 template<typename T, typename ... T2> inline void pi(const T& val, const T2& ... rest) {pi(val); pi(rest...);}
 template<class T> void minset(T& a, T b) { if (b < a) a = b; }template<class T> void maxset(T& a, T b) { if (b>a) a = b; }
 template<typename T> T modul(T val, T __modulo = MOD) { return (val%__modulo + __modulo)%__modulo; }
+struct __RM_UNUSED{__RM_UNUSED(){(void)INF; (void)PI;}};
 
 
 ]]></content>
