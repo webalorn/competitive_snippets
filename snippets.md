@@ -19,10 +19,13 @@
 ## Structs
 - str_graph
 - str_pos (Pos et moves)
+- str_grid (Read and store grid, functions on grids)
 
 ## I/O
 - read_graph
 - read_graph_pondere
+- read_flow
+- grid_to_flow // Transform grid to min cost max flow
 
 ## Algo
 - General
@@ -36,6 +39,10 @@
   - algo_remonte_dijkstra
   - algo_floyd_warshall
   - algo_tri_topo
+  - Flows
+    - algo_flow // Min cost max flow
+    - algo_min_cut
+    - 
 - Maths
   - math_usual // pgcd, ppm, genNPrimes, genPrimesUnder
 
