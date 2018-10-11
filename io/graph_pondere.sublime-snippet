@@ -1,6 +1,6 @@
 <snippet>
 	<content><![CDATA[
-void read_graph_pondere() {
+void readGraphPondere() {
 	scanf("%d%d", &nbNodes, &nbArcs);
 	for (int iArc = 0; iArc < nbArcs; iArc++) {
 		int node1, node2, size;

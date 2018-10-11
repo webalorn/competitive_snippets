@@ -7,14 +7,19 @@ struct Pos {
 };
 Pos operator + (const Pos& a, const Pos& b) { return {a.lig + b.lig, a.col + b.col}; }
 Pos operator - (const Pos& a, const Pos& b) { return {a.lig - b.lig, a.col - b.col}; }
+bool operator == (const Pos& a, const Pos& b) { return a.lig == b.lig && a.col == b.col; }
 
 #if NB_MOVES == 4
-Pos moves[4] = {{0, 1}, {-1, 0}, {0, -1}, {1, 0}};
+array<Pos, 4> moves = {{{0, 1}, {-1, 0}, {0, -1}, {1, 0}}};
+//array<char, 4> movesDir = {{'E', 'N', 'W', 'S'}};
+array<char, 4> movesDir = {{'E', 'N', 'O', 'S'}};
 #elif NB_MOVES == 8
-Pos moves[8] = {{0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}};
+array<Pos, 8> moves = {{{0, 1}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}}};
 #else
-Pos moves[4] = {{-1, 1} {-1, -1}, {1, -1}, {1, 1}};
+array<Pos, 4> moves = {{{-1, 1}, {-1, -1}, {1, -1}, {1, 1}}};
 #endif
+
+int getMoveId(Pos mv) { for (int i = 0; i < NB_MOVES; i++) { if (moves[i] == mv) { return i; } }return -1; }
 
 
 ]]></content>

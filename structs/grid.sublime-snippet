@@ -24,6 +24,9 @@ int getCellId(Pos pos) {
 	int cell = pos.lig*larg + pos.col;
 	return cell;
 }
+Pos idToCell(int id) {
+	return {id/larg, id%larg};
+}
 int isPosValid(Pos pos) {
 	if (pos.lig < 0 || pos.lig >= haut || pos.col < 0 || pos.col >= larg) {
 		return false;
