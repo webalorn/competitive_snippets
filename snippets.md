@@ -26,6 +26,8 @@
   - `read_graph`
   - `read_graph_pondere`
   - `read_flow`
+  - `read_min_cost_flow`
+  - `read_max_matching`
 - **Data conversion**
   - `grid_to_flow` *// Convert grid to max flow graph*
   - `grid_to_graph`
@@ -35,6 +37,7 @@
 - **General**
   - `algo_union_find`
   - `algo_dicho` *// Dichotomie*
+  - `algo_merge_sort`
 - **Graphs** *(requires str_graph)*
   - `algo_contain_cycle`
   - `algo_dfs`
@@ -46,9 +49,11 @@
     - `algo_remonte_dijkstra`
     - `algo_bellman_ford`
     - `algo_floyd_warshall`
-  - **Flows**
+  - **Flows / max matching**
     - `algo_flow` *// Max flow*
-    - algo_min_cut
+    - `algo_min_cut`
+    - `algo_min_cost_max_flow` *// Min cost max flow*
+    - `algo_max_matching`
 - **Maths**
   - `math_usual` *// pgcd, ppm, genNPrimes, genPrimesUnder*
 
