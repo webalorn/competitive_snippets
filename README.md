@@ -1,1 +1,4 @@
-Snippets for Sublime text 3
+# Snippets for Competitve Programing
+
+To generate all snippets, launch:
+```./genAll.sh```

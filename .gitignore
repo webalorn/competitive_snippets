@@ -4,3 +4,5 @@ TypeScript/*
 Preferences.sublime-settings
 *.DS_Store
 local/*
+generated/*
+*__pycache__

@@ -1,3 +1,6 @@
+/*@
+@ Algo de BFS
+@ */
 int bfs_tMin[MAX_NODES+1];
 
 struct __BFS_Init {
