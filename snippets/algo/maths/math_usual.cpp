@@ -1,4 +1,3 @@
-
 vector<int> crible_primes(int borneMax, int nbGenMax = INF) {
 	vector<int> primesTab;
 	if (borneMax >= 2) {
@@ -21,7 +20,7 @@ vector<int> crible_primes(int borneMax, int nbGenMax = INF) {
 vector<int> genNPrimes(int nbPrimesYouWant) {
 	return crible_primes(INF, nbPrimesYouWant);
 }
-vector<int> genPrimesUnder(int borneMax) {
+vector<int> genPrimesUnder(int borneMax) { // Borne incluse
 	return crible_primes(borneMax, INF);
 }
 

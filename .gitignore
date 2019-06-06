@@ -6,3 +6,4 @@ Preferences.sublime-settings
 local/*
 generated/*
 *__pycache__
+.vscode/*

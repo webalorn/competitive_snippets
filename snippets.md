@@ -55,9 +55,13 @@
     - `algo_min_cost_max_flow` *// Min cost max flow*
     - `algo_max_matching`
 - **Maths**
-  - `math_usual` *// pgcd, ppm, genNPrimes, genPrimesUnder*
+  - `math_usual` *// pgcd, ppcm, genNPrimes, genPrimesUnder*
+  - `math_numerics` // factorielle, bases convertion, BigInt
 
 ## C++ useful functions
+
   - `[string].substr(start, size)` *// Get a substring*
   - `to_string(value)` *// something to string*
   - `stoi(string, pos=0, base=10)` *// string to int*
+  - Cout with 0 at the begening: ```cout.fill('0’); cout.width(4);```
+  - ```std::fixed``` puis ```setprecision(k)```
