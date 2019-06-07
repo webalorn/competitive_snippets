@@ -1,30 +1,33 @@
-vector<int> crible_primes(int borneMax, int nbGenMax = INF) {
-	vector<int> primesTab;
-	if (borneMax >= 2) {
-		primesTab = {2};
-	}
-	for (int p = 3; p <= borneMax && (int)primesTab.size() < nbGenMax; p += 2) {
+//@title Functions for quick access to common mathematical operations
+//@defines crible_primes, genNPrimes, genNPrimesLli, genPrimesUnder, genPrimesUnderLli, divisorsOf
+//@defines pgcd, ppcm, genRange
+//@doc Mathematical functions
+//@doc Include functions for prime numbers
+//@
+template<typename T> vector<T> crible_primes(T borneMax, int nbGenMax = INF) {
+	vector<T> primesTab;
+	if (borneMax >= 2) { primesTab = {2}; }
+	for (T p = 3; p <= borneMax && (int)primesTab.size() < nbGenMax; p += 2) {
 		bool isPrime = true;
-		for (int pp : primesTab) {
+		for (auto pp : primesTab) {
 			if (p%pp == 0) {
 				isPrime = false;
 				break;
-			}
-		}
-		if (isPrime) {
-			primesTab.push_back(p);
-		}
-	}
-	return primesTab;
+		}} if (isPrime) { primesTab.push_back(p); }
+	} return primesTab;
 }
-vector<int> genNPrimes(int nbPrimesYouWant) {
-	return crible_primes(INF, nbPrimesYouWant);
-}
-vector<int> genPrimesUnder(int borneMax) { // Borne incluse
-	return crible_primes(borneMax, INF);
-}
+vector<int> genNPrimes(int nbPrimesYouWant) { return crible_primes<int>(INF, nbPrimesYouWant); }
+vector<lli> genNPrimesLli(lli nbPrimesYouWant) { return crible_primes<lli>(LLINF, nbPrimesYouWant); }
+vector<int> genPrimesUnder(int borneMax) { return crible_primes<int>(borneMax, INF); } // Including 'borneMax'
+vector<lli> genPrimesUnderLli(lli borneMax) { return crible_primes<lli>(borneMax, INF); }// Including 'borneMax'
 
-lli pgcd(lli a, lli b) { return (b == 0) ? a : pgcd(b, a%b); }
-lli ppcm(lli a, lli b) { return a * b / pgcd(a, b); }
+template<typename T> vector<T> divisorsOf(T n){vector<T> d;for (T k=1;k<=n;k++){if(n%k==0){d.push_back(k);}}return d;}
+
+template<typename T> T pgcd(T a, T b) { return (b == 0) ? a : pgcd(b, a%b); }
+template<typename T> T ppcm(T a, T b) { return a * b / pgcd(a, b); }
+template<typename T> T pgcd(vector<T> nums){T r=nums[0];for(int i=1; i<(int)nums.size();i++){r=pgcd(r,nums[i]);}return r;}
+template<typename T> T ppcm(vector<T> nums){T r=nums[0];for(int i=1; i<(int)nums.size(); i++){r=ppcm(r,nums[i]); }return r;}
+
+template<typename T = int> vector<T> genRange(T startAt,T endBefore,T step=1) {vector<T> r;while ((step > 0 && startAt < endBefore) || (step < 0 && startAt > endBefore)) {r.push_back(startAt);startAt += step;}return r;}
 
 

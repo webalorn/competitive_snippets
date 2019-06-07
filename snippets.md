@@ -56,7 +56,7 @@
     - `algo_max_matching`
 - **Maths**
   - `math_usual` *// pgcd, ppcm, genNPrimes, genPrimesUnder*
-  - `math_numerics` // factorielle, bases convertion, BigInt
+  - `math_numerics` *// factorielle, bases convertion, BigInt*
 
 ## C++ useful functions
 

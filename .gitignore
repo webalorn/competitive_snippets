@@ -7,3 +7,4 @@ local/*
 generated/*
 *__pycache__
 .vscode/*
+doc.md

@@ -1,4 +1,4 @@
-import os
+import os, copy
 
 AVAILABLE_PROPERTIES = ["title", "doc", "defines", "include"] # '//@' will be ignorer
 SNIPPETS_ROOT = "snippets"
@@ -81,3 +81,20 @@ def readSnippet(fileInfos):
 
 def getAllSnippets():
 	return [readSnippet(fileInfos) for fileInfos in getSnippetsFiles()]
+
+def addSnippetToTree(tree, snippet, category, level):
+	tree["_level_"] = level
+	if not "_contain_" in tree:
+		tree["_contain_"] = []
+	if category == []:
+		tree["_contain_"].append(snippet)
+	else:
+		if not category[0] in tree:
+			tree[category[0]] = {}
+		addSnippetToTree(tree[category[0]], snippet, category[1:], level+1)
+
+def getSnippetsTree(snippetsDatas):
+	tree = {}
+	for snippet in snippetsDatas:
+		addSnippetToTree(tree, snippet, snippet["category"], 0)
+	return tree
