@@ -1,3 +1,6 @@
+//@title Union-Find algorithm
+//@defines Union Find
+//@
 const int UF_MAX_NODES = 100*1000;
 int uf_parent[UF_MAX_NODES];
 int uf_size[UF_MAX_NODES];

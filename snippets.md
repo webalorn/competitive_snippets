@@ -1,4 +1,8 @@
-## cpp
+# C++
+
+## Code
+
+TODO : split string
 
 - **Utility**
   - `includes`
@@ -17,6 +21,7 @@
   - `battleDev_main`
 
 ## Structs
+
 - `str_graph`
 - `str_pos` *(Pos et moves)*
 - `str_grid` *(Read and store grid, functions on grids)*
@@ -65,3 +70,51 @@
   - `stoi(string, pos=0, base=10)` *// string to int*
   - Cout with 0 at the begening: ```cout.fill('0’); cout.width(4);```
   - ```std::fixed``` puis ```setprecision(k)```
+  - `priority_queue<int, std::vector<int>, decltype(comp)> `
+
+
+
+# Python
+
+## Code
+
+-   `mainDefault`, `mainLarg` `mainShort`, `mainMini`, `mdfMain`
+-   `utilPoints`
+-   `utilMath` (primes, pgcd, ppcm, fact, binom, is_palindrom)
+-   `utilCollections` (with `argmin`, `argmax`, and for dicts)
+-   `utilSearch` (upper_bound, lower_bound, range, is_in_sorted)
+-   Short names:
+    -   `cin`, `rcin`, `icin`,`micin` `cout`
+    -   `rint`,`rmint`, `lrmint`, `fprint`
+    -   `rfor`
+    -   `read_print`
+    -   `struct` (With nammed tuple. Set with `a = a._replace(x=11, z=a.y)`)
+
+## Structures
+
+May be required by some algorithms
+
+-   `str_heap` 
+-   `str_graph`
+
+## Algo
+
+-   General
+    -   `algo_union_find`
+    -   `algo_dicho`
+    -   `algo_merge_sort`
+-   Graph
+    -   `algo_dffs`
+    -   `algo_bfs`
+-   Structures
+    -   `str_cartesian_tree` (and `str_cartesian_tree_extras`)
+    -   `str_heap`
+    -   `str_graph`
+
+## Python useful functions
+
+-   `{0:.2f}'.format(x)`
+-   `map(f, l)`, `filter(f, l)`, `reduce(f, l, start)`
+-   `deque.pop()`, `deque.popleft()`, `deque.append()`, `deque.appendleft`
+-   `dict.keys()`, `dict.items()`, `dict.pop(key)`, `dict.values()`
+-   `set.add(v)`, `s.remove(v)`

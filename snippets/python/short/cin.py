@@ -1,0 +1,1 @@
+sys.stdin.readline()

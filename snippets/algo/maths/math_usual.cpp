@@ -31,3 +31,25 @@ template<typename T> T ppcm(vector<T> nums){T r=nums[0];for(int i=1; i<(int)nums
 template<typename T = int> vector<T> genRange(T startAt,T endBefore,T step=1) {vector<T> r;while ((step > 0 && startAt < endBefore) || (step < 0 && startAt > endBefore)) {r.push_back(startAt);startAt += step;}return r;}
 
 
+/*
+* Return a vector of all the prime factors of an integer, in ascending order
+*/
+template<typename T> vector<T> getPrimeFactors(T n) {
+	T k = 2; vector<T> factors;
+	while (k*k <= n) {
+		if (n%k == 0) {
+			factors.push_back(k);
+			n /= k;
+		} else { k++; }
+	} if (n > 1) { factors.push_back(n); }
+	return factors;
+}
+
+/*
+* Return true iff n is a palindromic number in the given base
+*/
+template<typename T> bool isNumPalindrom(T n, T base=10) {
+	T n2 = n; T inv = 0;
+	while (n2 > 0) { inv = inv * base + n2 % base; n2 /= base; }
+	return inv == n;
+}

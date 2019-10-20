@@ -1,0 +1,1 @@
+map(int, input().split())
