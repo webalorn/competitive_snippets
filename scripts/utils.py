@@ -18,12 +18,13 @@ def getSnippetsFiles():
 		os.makedirs(newDir, exist_ok=True)
 
 		for fName in filenames:
-			if os.path.splitext(fName)[1] == '.cpp':
+			if os.path.splitext(fName)[1] in ['.cpp', '.py']:
 				fileInfos = {
 					'filepath': os.path.join(dirpath, fName),
 					'name': os.path.splitext(fName)[0],
 					'dirpath': os.path.join(*(dirpath.split(os.path.sep)[1:])),
-					'category': list(dirpath.split(os.path.sep)[1:])
+					'category': list(dirpath.split(os.path.sep)[1:]),
+					'lang': os.path.splitext(fName)[1][1:]
 				}
 				files.append(fileInfos)
 	return files
@@ -77,6 +78,7 @@ def readSnippet(fileInfos):
 			'code': cppLines,
 			'dirpath': fileInfos["dirpath"],
 			'category': fileInfos["category"],
+			'lang': fileInfos["lang"],
 		}
 
 def getAllSnippets():

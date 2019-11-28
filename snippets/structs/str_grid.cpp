@@ -1,3 +1,8 @@
+//@title Array to represent a grid of char and usefull functions
+//@defines grid, readGrid, getCellId, idToCell, isPosValid
+//@
+/* Requires st_pos */
+
 const bool IS_GRID_SQUARE = true;
 const int MAX_COTE = 200;
 

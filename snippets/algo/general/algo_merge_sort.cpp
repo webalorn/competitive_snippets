@@ -1,3 +1,7 @@
+//@title Merge Sort algorithme
+//@defines mergerSort
+//@doc Can be adapted for any purpose (for exemple, any algorithm based on divide-to-conquer)
+//@
 template<class T> T mergeSort(T elements) {
 	if (elements.size() >= 2) {
 		T left, right;

@@ -1,3 +1,6 @@
+//@title Maximum matching algorithm
+//@defines findMatching, getMaxMatching
+//@
 const int MAX_ELEMENTS = 10*1000;
 
 int linkedTo[MAX_ELEMENTS];

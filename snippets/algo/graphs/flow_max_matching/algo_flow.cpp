@@ -1,3 +1,7 @@
+//@title Ford-Fulkerson algorithm with flow of size 2^k
+//@defines pushFlow, getMaxFlow
+//@doc "flow" will contain the flow passing through an edge (positive or negative).
+//@
 const int MAX_NODES = 501;
 const bool IS_FLOW_ORIENTED = true;
 int sourceId = 1, puitId = 1;

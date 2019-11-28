@@ -1,3 +1,5 @@
+//@defines getMinCostMaxFlow
+//@
 #define MAX_VERTICES 1000
 
 int cap[MAX_VERTICES][MAX_VERTICES];

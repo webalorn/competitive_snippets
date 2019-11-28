@@ -1,3 +1,6 @@
+//@title Dichotomy algorithm
+//@doc This snippet is not a function and must be inserted directly into the code
+//@
 int deb = 0, fin = ${1:10*1000};
 while (deb+1 < fin) {
 	int center = (deb + fin)/2;
