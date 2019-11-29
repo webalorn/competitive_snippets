@@ -1,4 +1,4 @@
-import sys, heapq
+import sys, heapq, itertools
 from functools import reduce
 from copy import deepcopy as copy
 from collections import deque, namedtuple

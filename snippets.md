@@ -81,8 +81,9 @@ TODO : split string
 -   `mainDefault`, `mainLarg` `mainShort`, `mainMini`, `mdfMain`
 -   `utilPoints`
 -   `utilMath` (primes, pgcd, ppcm, fact, binom, is_palindrom)
--   `utilCollections` (with `argmin`, `argmax`, and for dicts)
+-   `utilCollections` (with `argmin`, `argmax`, and for dicts, and uchain, l2str)
 -   `utilSearch` (upper_bound, lower_bound, range, is_in_sorted)
+-   `utilCombi` (next_permutation, get_permuts)
 -   Short names:
     -   `cin`, `rcin`, `icin`,`micin` `cout`
     -   `rint`,`rmint`, `lrmint`, `fprint`
