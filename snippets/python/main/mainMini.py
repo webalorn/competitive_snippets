@@ -1,7 +1,7 @@
-import sys, random, math
+import sys, random, itertools, copy
+from math import *
 
 def main():
-	input, print = sys.stdin.readline, sys.stdout.write
 
 	$0
 

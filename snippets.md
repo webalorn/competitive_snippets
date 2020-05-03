@@ -1,5 +1,3 @@
-# C++
-
 ## Code
 
 TODO : split string
@@ -8,6 +6,8 @@ TODO : split string
   - `includes`
   - `main_default`
   - `islocal` *(compiler avec -Don_local)*
+  - `cout_anything`
+  - `string_utility`
   - `usaco` *// Read and write in files*
   - `sync_false`
 - **C++ shortcurts**
@@ -105,7 +105,7 @@ May be required by some algorithms
     -   `algo_dicho`
     -   `algo_merge_sort`
 -   Graph
-    -   `algo_dffs`
+    -   `algo_dfs`
     -   `algo_bfs`
 -   Structures
     -   `str_cartesian_tree` (and `str_cartesian_tree_extras`)
@@ -114,7 +114,7 @@ May be required by some algorithms
 
 ## Python useful functions
 
--   `{0:.2f}'.format(x)`
+-   `{0:.2f}'.format(x)`, `round(x, 2)`
 -   `map(f, l)`, `filter(f, l)`, `reduce(f, l, start)`
 -   `deque.pop()`, `deque.popleft()`, `deque.append()`, `deque.appendleft`
 -   `dict.keys()`, `dict.items()`, `dict.pop(key)`, `dict.values()`
