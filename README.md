@@ -50,9 +50,9 @@ For example:
 ```
 
 Available property names:
-- **title**: A name for the snippet. Currently unused.
-- **doc**: Documentation for the snippet. Currently unused.
-- **defines**: List of functions / objects defined by this snippet. Currently unused.
+- **title**: A name for the snippet.
+- **doc**: Documentation for the snippet.
+- **defines**: List of functions / objects defined by this snippet.
 - **include**: include another snippet code into this snippet.
 
 You can also add a blank line that won't be included into the snippet code by typing:

@@ -1,5 +1,5 @@
-for (int lig = 0; lig < haut; lig++) {
-	for (int col = 0; col < larg; col++) {
+for (int lig = 0; lig < nbLigs; lig++) {
+	for (int col = 0; col < nbCols; col++) {
 		int id = getCellId({lig, col});
 		if (isPosValid({lig, col})) {
 			for (auto& mv : moves) {

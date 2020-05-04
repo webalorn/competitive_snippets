@@ -15,5 +15,6 @@ template<class A, class B> ostream& operator<<(ostream& os, const map<A, B>& v) 
 template<class T> ostream& operator<<(ostream& os, const unordered_set<T>& v) { os << "( "; for (auto& el : v) { os << el << ", "; } os << ")"; return os; }
 template<class A, class B> ostream& operator<<(ostream& os, const unordered_map<A, B>& v) { os << "{ "; for (auto& el : v) { os << el.first << ": " << el.second << ", "; } os << "}"; return os; }
 template<class A, class B> ostream& operator<<(ostream& os, const pair<A, B>& el) { os << "(" << el.first << ", " << el.second << ")"; return os; }
+template<class T> ostream& operator<<(ostream& os, const Matrix<T>& v) { os << "["; for (auto& el : v) { os << "\n    " << el << " ;"; } os << "\n]"; return os; }
 
 $0

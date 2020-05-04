@@ -1,108 +1,85 @@
-//@defines getMinCostMaxFlow
-//@
-#define MAX_VERTICES 1000
+/* Min cost Max Flow algorithm using Dijkstra. Weights must be positive */
+#define MAX_VERTICES 300
 
-int cap[MAX_VERTICES][MAX_VERTICES];
-int cost[MAX_VERTICES][MAX_VERTICES];
-int flowOnEdge[MAX_VERTICES][MAX_VERTICES];
+int nbVertices, nbEdges, source, puit; // Init with values
 
-vector<int> vertexVois[MAX_VERTICES];
-int flowDijNext[MAX_VERTICES], flowDijDepth[MAX_VERTICES];
-int label[MAX_VERTICES];
+int cap[MAX_VERTICES][MAX_VERTICES]; // Init at 0 or cap
+int cost[MAX_VERTICES][MAX_VERTICES]; // Init at cost
+int flowOnEdge[MAX_VERTICES][MAX_VERTICES]; // Set by the algorithm
 
-int nbVertices, nbEdges, source, puit;
+// Used internally by the algorithm
+vector<int> vertexVois[MAX_VERTICES]; // Improve performances if the graph is sparse
+int potential[MAX_VERTICES], distMin[MAX_VERTICES], dijPrev[MAX_VERTICES];
 
-inline int edgeCost(const int from, const int to) {
-	return flowDijDepth[from] + label[from] - label[to];
+struct FlowSit { int pos, time; };
+bool operator < (const FlowSit& a, const FlowSit& b) {
+	return a.time > b.time;
 }
 
-bool canPushWithDijkstra() {
-	for (int iVertex = 0; iVertex < nbVertices; iVertex++) {
-		flowDijDepth[iVertex] = INF;
-		flowDijNext[iVertex] = -1;
+inline const pair<int, int> getEdgeCapCost(const int a, const int b) {
+	if (flowOnEdge[b][a] > 0) {
+		return {flowOnEdge[b][a], - cost[b][a] + potential[a] - potential[b]};
 	}
-	flowDijDepth[source] = 0;
-	flowDijNext[source] = -nbVertices - 1;
+	return {cap[a][b] - flowOnEdge[a][b], cost[a][b] + potential[a] - potential[b]};
+}
+inline int updateAndCost(const int a, const int b, const int delta) {
+	if (flowOnEdge[b][a] > 0) {
+		flowOnEdge[b][a] -= delta;
+		return - delta * cost[b][a];
+	}
+	flowOnEdge[a][b] += delta;
+	return delta * cost[a][b];
+}
 
-	while (true) {
-		int vertDepthMin = -1, minDepth = INF;
+bool canPushDijPath() {
+	fill(distMin, distMin+MAX_VERTICES, INF);
+	distMin[source] = 0;
+
+	priority_queue<FlowSit> sits;
+	sits.push({source, 0});
+	while (!sits.empty()) { // Dijkstra
+		int pos = sits.top().pos, time = sits.top().time;
+		sits.pop();
+		if (time == distMin[pos]) {
+			for (int v : vertexVois[pos]) {
+				auto capCost = getEdgeCapCost(pos, v);
+				if (capCost.first) {
+					int t2 = time + capCost.second;
+					if (t2 < distMin[v]) {
+						dijPrev[v] = pos;
+						distMin[v] = t2;
+						sits.push({v, t2});
+					}
+				}
+			}
+		}
+	}
+	return distMin[puit] != INF;
+}
+
+pair<int, int> getMinCostMaxFlow() { // return {minCost, maxFlow}
+	fill(flowOnEdge[0], flowOnEdge[0]+MAX_VERTICES*MAX_VERTICES, 0);
+	for (int iVertex = 0; iVertex < nbVertices; iVertex++) {
+		for (int iVois = 0; iVois < nbVertices; iVois++) {
+			if (cap[iVertex][iVois] != 0 || cap[iVois][iVertex] != 0) {
+				vertexVois[iVertex].emplace_back(iVois);
+			}
+		}
+	}
+	int minCost = 0, maxFlow = 0;
+	while (canPushDijPath()) {
 		for (int iVertex = 0; iVertex < nbVertices; iVertex++) {
-			if (flowDijNext[iVertex] < 0 && flowDijDepth[iVertex] < minDepth) {
-				vertDepthMin = iVertex;
-				minDepth = flowDijDepth[iVertex];
-			}
+			potential[iVertex] += distMin[iVertex];
 		}
-		if (minDepth == INF) {
-			break;
+		int delta = INF;
+		for (int iVertex = puit; iVertex != source; iVertex = dijPrev[iVertex]) {
+			auto capCost = getEdgeCapCost(dijPrev[iVertex], iVertex);
+			delta = min(delta, capCost.first);
 		}
-
-		// relax edge (vertDepthMin, iVertex) or (iVertex, vertDepthMin) for all iVertex
-		flowDijNext[vertDepthMin] = -flowDijNext[vertDepthMin] - 1;
-		for (int iVertex : vertexVois[vertDepthMin]) {
-			if (flowDijNext[iVertex] >= 0) {
-				continue;
-			}
-			if (flowOnEdge[iVertex][vertDepthMin] && flowDijDepth[iVertex] > edgeCost(vertDepthMin, iVertex) - cost[iVertex][vertDepthMin]) { 
-				flowDijDepth[iVertex] = edgeCost(vertDepthMin, iVertex) - cost[iVertex][vertDepthMin];
-				flowDijNext[iVertex] = -vertDepthMin-1;
-			}
-		
-			// try edge vertDepthMin->iVertex
-			if (flowOnEdge[vertDepthMin][iVertex] < cap[vertDepthMin][iVertex]
-					&& flowDijDepth[iVertex] > edgeCost(vertDepthMin, iVertex) + cost[vertDepthMin][iVertex]) {
-				flowDijDepth[iVertex] = edgeCost(vertDepthMin, iVertex) + cost[vertDepthMin][iVertex];
-				flowDijNext[iVertex] = -vertDepthMin - 1;
-			}
+		for (int iVertex = puit; iVertex != source; iVertex = dijPrev[iVertex]) {
+			minCost += updateAndCost(dijPrev[iVertex], iVertex, delta);
 		}
+		maxFlow += delta;
 	}
-
-	for (int iVertex = 0; iVertex < nbVertices; iVertex++) {
-		if (label[iVertex] < INF) {
-			label[iVertex] += flowDijDepth[iVertex];
-		}
-	}
-
-	return flowDijNext[puit] >= 0;
+	return {minCost, maxFlow};
 }
-
-pair<int, int> getMinCostMaxFlow() { // return {min_cost, max_flow}
-	fill(flowOnEdge[0], flowOnEdge[0] + MAX_VERTICES*MAX_VERTICES, 0);
-	fill(label, label + MAX_VERTICES, 0);
-
-	for (int iVertex = 0; iVertex < nbVertices; iVertex++) {
-		for (int iNext = 0; iNext < nbVertices; iNext++) {
-			if (cap[iVertex][iNext] || cap[iNext][iVertex]) {
-				vertexVois[iVertex].push_back(iNext);
-			}
-		}
-	}
-	
-	int flow = 0, flowCost = 0;
-	
-	while (canPushWithDijkstra()) {
-		int capMinPath = INF;
-		for (int iVertex = puit, iNext = flowDijNext[iVertex]; iVertex != source; iVertex = iNext, iNext = flowDijNext[iVertex]) {
-			if (flowOnEdge[iVertex][iNext]) {
-				capMinPath = min(capMinPath, flowOnEdge[iVertex][iNext]);
-			} else {
-				capMinPath = min(capMinPath, cap[iNext][iVertex] - flowOnEdge[iNext][iVertex]);
-			}
-		}
-
-		// update the flow network
-		for (int iVertex = puit, iNext = flowDijNext[iVertex]; iVertex != source; iVertex = iNext, iNext = flowDijNext[iVertex]) {
-			if (flowOnEdge[iVertex][iNext]) {
-				flowOnEdge[iVertex][iNext] -= capMinPath;
-				flowCost -= capMinPath * cost[iVertex][iNext];
-			} else {
-				flowOnEdge[iNext][iVertex] += capMinPath;
-				flowCost += capMinPath * cost[iNext][iVertex];
-			}
-		}
-	
-		flow += capMinPath;
-	}
-  
-	return {flowCost, flow};
-}
-

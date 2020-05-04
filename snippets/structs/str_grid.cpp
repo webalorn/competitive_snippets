@@ -6,32 +6,32 @@
 const bool IS_GRID_SQUARE = true;
 const int MAX_COTE = 200;
 
-int haut, larg;
+int nbLigs, nbCols;
 char grid[MAX_COTE][MAX_COTE];
 
 void readGrid() {
-	scanf("%d", &haut);
+	scanf("%d", &nbLigs);
 	if (IS_GRID_SQUARE) {
-		larg = haut;
+		nbCols = nbLigs;
 	} else {
-		scanf("%d", &larg);
+		scanf("%d", &nbCols);
 	}
 
-	for (int lig = 0; lig < haut; lig++) {
-		for (int col = 0; col < larg; col++) {
+	for (int lig = 0; lig < nbLigs; lig++) {
+		for (int col = 0; col < nbCols; col++) {
 			scanf(" %c", &grid[lig][col]);
 		}
 	}
 }
 int getCellId(Pos pos) {
-	int cell = pos.lig*larg + pos.col;
+	int cell = pos.lig*nbCols + pos.col;
 	return cell;
 }
 Pos idToCell(int id) {
-	return {id/larg, id%larg};
+	return {id/nbCols, id%nbCols};
 }
 int isPosValid(Pos pos) {
-	if (pos.lig < 0 || pos.lig >= haut || pos.col < 0 || pos.col >= larg) {
+	if (pos.lig < 0 || pos.lig >= nbLigs || pos.col < 0 || pos.col >= nbCols) {
 		return false;
 	}
 	if (grid[pos.lig][pos.col] == '#') {

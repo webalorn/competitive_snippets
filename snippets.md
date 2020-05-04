@@ -23,6 +23,7 @@ TODO : split string
 ## Structs
 
 - `str_graph`
+- `str_bigint`
 - `str_pos` *(Pos et moves)*
 - `str_grid` *(Read and store grid, functions on grids)*
 
@@ -57,11 +58,11 @@ TODO : split string
   - **Flows / max matching**
     - `algo_flow` *// Max flow*
     - `algo_min_cut`
-    - `algo_min_cost_max_flow` *// Min cost max flow*
+    - `algo_min_cost_max_flow` , `algo_min_cost_max_flow_sparse` , `algo_min_cost_max_flow_slower` 
     - `algo_max_matching`
 - **Maths**
-  - `math_usual` *// pgcd, ppcm, genNPrimes, genPrimesUnder*
-  - `math_numerics` *// factorielle, bases convertion, BigInt*
+  - `math_usual` *// pgcd, ppcm, factorielle, base conversion
+  - `math_primes` *// genNPrimes, genPrimesUnder*
 
 ## C++ useful functions
 
