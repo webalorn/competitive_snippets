@@ -1,4 +1,4 @@
-import os, copy
+import os, copy, sys
 
 AVAILABLE_PROPERTIES = ["title", "doc", "defines", "include"] # '//@' will be ignorer
 SNIPPETS_ROOT = "snippets"
@@ -45,7 +45,15 @@ def getIncludedSnippet(snippetName):
 		Return the code of a given snippet.
 		The name must be in a format like : algo/maths/math_numeric , without the ".cpp" extension.
 	"""
-	return readSnippet(os.path.join(SNIPPETS_ROOT, snippetName + ".cpp"))["code"]
+	fileInfos = {
+		'filepath': os.path.join(SNIPPETS_ROOT, snippetName),
+		'name': '', 'dirpath': '', 'category': '', 'lang': ''
+	}
+	try:
+		return readSnippet(fileInfos)["code"]
+	except FileNotFoundError:
+		sys.stderr.write("ERROR : {} doesn't exist\n".format(snippetName))
+		return []
 
 def readSnippet(fileInfos):
 	properties = {
@@ -75,7 +83,7 @@ def readSnippet(fileInfos):
 		return {
 			'name': fileInfos["name"],
 			'properties': properties,
-			'code': cppLines,
+			'code': includedLines + cppLines,
 			'dirpath': fileInfos["dirpath"],
 			'category': fileInfos["category"],
 			'lang': fileInfos["lang"],

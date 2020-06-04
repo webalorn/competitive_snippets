@@ -9,6 +9,7 @@ def main():
 	INF, LLINF = 10**9, 4*(10**18)
 	MOD = 10**9+7
 	ID_FCT = lambda x:x
+	input, print = sys.stdin.readline, print
 
 	def modul(n, mod=MOD): return (n%mod + mod)%mod
 	def err_print(*args, end="\n", sep=" "): sys.stderr.write(" ".join([str(a) for a in args]))

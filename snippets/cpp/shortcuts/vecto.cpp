@@ -1,1 +1,1 @@
-vector<${1:int}>$0
+vector<${1:int}> $0

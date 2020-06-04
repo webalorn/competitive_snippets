@@ -14,6 +14,9 @@ TODO : split string
   - `foru` *(itérer ascendant)*
   - `ford` *(itérer descendant)*
   - `forel` *(itérer dans une structure)*
+  - `infop` *(opérateur < rapidement)*
+  - `lambda`
+  - `vecto` *(vector, int par défaut)*
 - **Definitions**
   - `def_consts`
   - `def_types`
@@ -26,6 +29,9 @@ TODO : split string
 - `str_bigint`
 - `str_pos` *(Pos et moves)*
 - `str_grid` *(Read and store grid, functions on grids)*
+- `str_segtree`
+    - `segtree_template`
+    - `segtree_max`, `segtree_sum`
 
 ## I/O
 - **Read functions**
@@ -56,13 +62,22 @@ TODO : split string
     - `algo_bellman_ford`
     - `algo_floyd_warshall`
   - **Flows / max matching**
-    - `algo_flow` *// Max flow*
-    - `algo_min_cut`
-    - `algo_min_cost_max_flow` , `algo_min_cost_max_flow_sparse` , `algo_min_cost_max_flow_slower` 
+    - `algo_flow` , `algo_flow_sparse`
+    - `algo_min_cut`, `algo_min_cut_sparse`
+    - `algo_min_cost_max_flow` , `algo_min_cost_max_flow_sparse` , `algo_min_cost_max_flow_slower`
+    - `algo_min_cost_max_flow_negative` // Works with negative costs 
     - `algo_max_matching`
 - **Maths**
   - `math_usual` *// pgcd, ppcm, factorielle, base conversion
   - `math_primes` *// genNPrimes, genPrimesUnder*
+- **Geometry**
+    - $x*y=||x||.||y||.cos(x,y)$, $det(x,y)=||x||.||y||.sin(x,y)$
+        - Composante colinéaire à $x$ : $\frac{x*y}{||x||}$. Orthogonale : $\frac{det(x,y)}{||x||}$
+    - `geo_base` (Vect and base functions. Set vint = double if you want non-integer coords)
+    - `geo_rects` (To work with rectangles)
+    - `geo_segs` (To work with segments and lines)
+    - `geo_convex_hull.cpp`
+    - `geo_shapes` // borderToSegs, arePointsInArea, ...
 
 ## C++ useful functions
 
@@ -72,6 +87,7 @@ TODO : split string
   - Cout with 0 at the begening: ```cout.fill('0’); cout.width(4);```
   - ```std::fixed``` puis ```setprecision(k)```
   - `priority_queue<int, std::vector<int>, decltype(comp)> `
+  - `atan2`
 
 
 

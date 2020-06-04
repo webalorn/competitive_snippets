@@ -40,3 +40,4 @@ int isPosValid(Pos pos) {
 	return true;
 }
 
+$0

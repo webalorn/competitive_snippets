@@ -1,4 +1,4 @@
-/* Min cost Max Flow algorithm using Dijkstra on a graph represented with an adjacency list */
+/* Min cost Max Flow algorithm using Dijkstra and bellman-ford. Works with negative weights */
 struct Edge { int from, to, cap, cost, flow, reversedId; };
 
 int nbVertices=0, nbEdges, source, puit; // Init with values
@@ -17,6 +17,23 @@ vector<Edge*> dijPrev;
 struct FlowSit { int pos, time; };
 bool operator < (const FlowSit& a, const FlowSit& b) {
 	return a.time > b.time;
+}
+
+void initWithBellmanFord() {
+	fill(distMin.begin(), distMin.end(), INF);
+	distMin[source] = 0;
+	for (int step = 0; step < nbVertices-1; step++) {
+		for (int iVertex = 0; iVertex < nbVertices; iVertex++) {
+			if (distMin[iVertex] != INF) {
+				for (Edge& e : flowEdges[iVertex]) {
+					distMin[e.to] = min(distMin[e.to], distMin[iVertex] + e.cost);
+				}
+			}
+		}
+	}
+	for (int iVertex = 0; iVertex < nbVertices; iVertex++) {
+		potential[iVertex] = distMin[iVertex];
+	}
 }
 
 bool canPushDijPath() {
@@ -51,6 +68,7 @@ pair<int, int> getMinCostMaxFlow() { // return {minCost, maxFlow}
 	flowEdges.resize(nbVertices); dijPrev.resize(nbVertices, nullptr);
 
 	int minCost = 0, maxFlow = 0;
+	initWithBellmanFord();
 	while (canPushDijPath()) {
 		for (int iVertex = 0; iVertex < nbVertices; iVertex++) {
 			potential[iVertex] += distMin[iVertex];
