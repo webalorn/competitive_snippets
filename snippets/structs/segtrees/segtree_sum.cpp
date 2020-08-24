@@ -1,7 +1,7 @@
 //@include structs/str_segtree.cpp
 
 
-template<class T> struct SumSegTree : public SegTree<T> {
+template<class T=int> struct SumSegTree : public SegTree<T> {
 	SumSegTree(int size=0, T defVal=0, T leafVal=0):SegTree<T>(size, defVal, leafVal){}
 
 	void initAll() {
@@ -11,23 +11,16 @@ template<class T> struct SumSegTree : public SegTree<T> {
 		}
 	}
 
-	void setPoint(int targetPos, int value,
-		int curNode = 1, int subLeft = 0, int subRight = 0) {
+	void set(int targetPos, int value) {
 		auto& tree = *this;
-		if (curNode == 1) { subLeft = 0, subRight = this->baseSize;}
-
-		if (curNode >= this->baseSize) {
-			tree[curNode] = value;
-		} else {
-			int m = (subLeft + subRight) / 2;
-			if (targetPos < m) {
-				setPoint(targetPos, value, curNode*2, subLeft, m);
-			} else {
-				setPoint(targetPos, value, curNode*2+1, m, subRight);
-			}
-			tree[curNode] = tree[curNode*2] + tree[curNode*2+1];
+		int node = targetPos + this->baseSize;
+		tree[node] = value;
+		while (node > 1) {
+			node /= 2;
+			tree[node] = tree[node*2] + tree[node*2+1];
 		}
 	}
+	void add(int targetPos, int value) { set(targetPos, (*this)[targetPos+this->baseSize] + value); }
 
 	T sumInter(int targetLeft, int targetRight,
 			int curNode=1, int subLeft=0, int subRight=0) {

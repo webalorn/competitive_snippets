@@ -5,23 +5,34 @@ TODO : split string
 - **Utility**
   - `includes`
   - `main_default`
-  - `islocal` *(compiler avec -Don_local)*
-  - `cout_anything`
-  - `string_utility`
-  - `usaco` *// Read and write in files*
+  - `islocal` *(compile with -Don_local)*
+  - `cout_anything` (for debugging purposes)
+  - `string_utility` (`split`, `trim`, `ltrim`, `rtrim`)
+  - `usaco` *Read and write in files*
   - `sync_false`
+  - `testsfor` *(read the number of tests and loop over it)*
 - **C++ shortcurts**
   - `foru` *(itérer ascendant)*
   - `ford` *(itérer descendant)*
   - `forel` *(itérer dans une structure)*
+  - `foriel` *(itérer indice et élément (like `enumerate` in python))*
   - `infop` *(opérateur < rapidement)*
   - `lambda`
-  - `vecto` *(vector, int par défaut)*
+  - `vv` *(`vector<int>` par défaut)*
+  - `ssize` *(int)___.size()*
+  - `reresize` *resize(0) ; resize(n)*
+  - `2pb`
+  - `rint`, `rvar`
+  - `print` *cout with spaces and newline*
 - **Definitions**
   - `def_consts`
   - `def_types`
 - **Contest-specific templates**
   - `battleDev_main`
+
+## Tools
+
+-   `tool_reindexer`
 
 ## Structs
 
@@ -124,6 +135,8 @@ May be required by some algorithms
 -   Graph
     -   `algo_dfs`
     -   `algo_bfs`
+    -   `algo_dij` (Dijkstra, à améliorer)
+    -   `algo_bellman_ford`
 -   Structures
     -   `str_cartesian_tree` (and `str_cartesian_tree_extras`)
     -   `str_heap`

@@ -11,15 +11,22 @@ template<class T=int> struct ${1:TemplateSegTree} : public SegTree<T> {
 		}
 	}
 
-	void ${2:pointRequest}(int targetPos, int value) {
+	void ${2:pointRequest}(int targetPos, int value,
+		int curNode = 1, int subLeft = 0, int subRight = 0) {
 		auto& tree = *this;
-		int node = targetPos + this->baseSize;
-		// Set leaf
+		if (curNode == 1) { subLeft = 0, subRight = this->baseSize;}
 
-		while (node > 1) {
-			node /= 2;
-			// Propagate to parents
+		if (curNode >= this->baseSize || false) { // If the request must stop here
+			// Do your stuff here
 
+		} else {
+			int m = (subLeft + subRight) / 2;
+			if (targetPos < m) {
+				${2}(targetPos, value, curNode*2, subLeft, m);
+			} else {
+				${2}(targetPos, value, curNode*2+1, m, subRight);
+			}
+			// Use the result here
 		}
 	}
 
