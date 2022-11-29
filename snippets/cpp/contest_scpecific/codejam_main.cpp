@@ -7,9 +7,9 @@ signed main() {
 	for (int iCase = 1; iCase <= nbCases; iCase++) {
 		// printf("Case #%d: ", iCase);
 		cout << "Case #" << iCase << ": ";
-		
+
 		$0
-		
+
 		// printf("\n");
 		cout << "\n";
 	}

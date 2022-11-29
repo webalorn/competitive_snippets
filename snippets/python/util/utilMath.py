@@ -16,10 +16,11 @@ def gen_primesUnder(p_max): return crible_primes(p_max, INF)
 def get_primes_factors(n):
 	k, f = 2, []
 	while k*k <= n:
-		if n%k==0:
+		while n%k==0:
 			f.append(k)
 			n //=k
-		else: k+=1
+		k+=1
+	if n > 1: f.append(n)
 	return f
 
 def pgcd(a, b): return a if not b else pgcd(b, a%b)

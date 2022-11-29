@@ -1,1 +1,1 @@
-print("{}\n".format($1))$0
+sys.stdin.write(f"{$0}\n")

@@ -35,6 +35,7 @@ int toint(char c) {return c-'0';} int toint(string s, int base=10) { return stoi
 template<class T> inline T readget(){T v;cin>>v;return v;}
 template <typename T, typename std::enable_if<!std::is_same<T,std::string>::value>::type* = nullptr >
 istream& operator>>(istream& is,T& v){for(auto& e:v){is>>e;}return is;}
+auto rng = std::default_random_engine {};
 // -----------------------------------------------------------
 
 $0

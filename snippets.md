@@ -1,6 +1,6 @@
 ## Code
 
-TODO : split string
+TODO : split string, fft, see ulm book
 
 - **Utility**
   - `includes`
@@ -20,7 +20,7 @@ TODO : split string
   - `lambda`
   - `vv` *(`vector<int>` par défaut)*
   - `ssize` *(int)___.size()*
-  - `reresize` *resize(0) ; resize(n)*
+  - `reresize` *resize(0) ; resize(n) *(or `.assign(n, val)`)*
   - `2pb`
   - `rint`, `rvar`
   - `print` *cout with spaces and newline*
@@ -107,16 +107,16 @@ TODO : split string
 ## Code
 
 -   `mainDefault`, `mainLarg` `mainShort`, `mainMini`, `mdfMain`
--   `utilPoints`
+-   `utilPoints` (vectors, points as tuples)
 -   `utilMath` (primes, pgcd, ppcm, fact, binom, is_palindrom)
--   `utilCollections` (with `argmin`, `argmax`, and for dicts, and uchain, l2str)
+-   `utilCollections` (with `argmin`, `argmax`, and for dicts, and uchain, l2str, `reindexer`)
 -   `utilSearch` (upper_bound, lower_bound, range, is_in_sorted)
 -   `utilCombi` (next_permutation, get_permuts)
 -   Short names:
     -   `cin`, `rcin`, `icin`,`micin` `cout`
-    -   `rint`,`rmint`, `lrmint`, `fprint`
+    -   `rr`, `rint`,`rmint`, `lrmint`, `fprint`
     -   `rfor`
-    -   `read_print`
+    -   (`read_print`)
     -   `struct` (With nammed tuple. Set with `a = a._replace(x=11, z=a.y)`)
 
 ## Structures
@@ -132,6 +132,8 @@ May be required by some algorithms
     -   `algo_union_find`
     -   `algo_dicho`
     -   `algo_merge_sort`
+    -   `algo_cumul`
+    -   `algo_dicho`
 -   Graph
     -   `algo_dfs`
     -   `algo_bfs`
@@ -141,6 +143,7 @@ May be required by some algorithms
     -   `str_cartesian_tree` (and `str_cartesian_tree_extras`)
     -   `str_heap`
     -   `str_graph`
+    -   `str_deque`
 
 ## Python useful functions
 
@@ -149,3 +152,5 @@ May be required by some algorithms
 -   `deque.pop()`, `deque.popleft()`, `deque.append()`, `deque.appendleft`
 -   `dict.keys()`, `dict.items()`, `dict.pop(key)`, `dict.values()`
 -   `set.add(v)`, `s.remove(v)`
+-   `accumulate(list, [func, initial=None])`, `chain(list1, list2, ...)`
+-   `permutations(list)`, `combinations(list)`, `product(list1, list2, ...)`

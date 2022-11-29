@@ -3,7 +3,7 @@ MAX_RAND = 10**9
 
 def cart_split(tree, v):
 	""" Returns a, b : a values < s, b values >= s """
-	if tree == None:
+	if tree is None:
 		return None, None
 	elif tree.val < v:
 		a, b = cart_split(tree.right, v)
@@ -13,8 +13,10 @@ def cart_split(tree, v):
 		return a, CartNode(tree.val, tree.rand, b, tree.right, tree.data)
 
 def cart_merge(a, b):
-	if a == None or b == None:
+	if a is None or b is None:
 		return a or b
+	if a is not None and b is not None and a.val > b.val:
+		return cart_merge(b, a)
 	if a.rand >= b.rand:
 		return CartNode(a.val, a.rand, a.left, cart_merge(a.right, b), a.data)
 	else:
