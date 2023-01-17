@@ -1,3 +1,4 @@
+# In reality, this is a TREAP, because the sorting key is random
 CartNode = namedtuple('CartNode', ['val', 'rand', 'left', 'right', 'data'])
 MAX_RAND = 10**9
 
@@ -15,12 +16,9 @@ def cart_split(tree, v):
 def cart_merge(a, b):
 	if a is None or b is None:
 		return a or b
-	if a is not None and b is not None and a.val > b.val:
-		return cart_merge(b, a)
-	if a.rand >= b.rand:
-		return CartNode(a.val, a.rand, a.left, cart_merge(a.right, b), a.data)
-	else:
-		return CartNode(b.val, b.rand, cart_merge(a, b.left), b.right, b.data)
+	if a.val > b.val: a, b = b, a
+	if a.rand >= b.rand: return CartNode(a.val, a.rand, a.left, cart_merge(a.right, b), a.data)
+	else: return CartNode(b.val, b.rand, cart_merge(a, b.left), b.right, b.data)
 
 def cart_insert(tree, v, data=None):
 	a, c = cart_split(tree, v)
@@ -35,8 +33,20 @@ def cart_remove(tree, v):
 def cart_get(tree, v):
 	if tree:
 		if tree.val == v: return tree
-		if tree.val < v: return cart_get(tree.left, v)
-		return cart_get(tree.right, v)
+		if tree.val < v: return cart_get(tree.right, v)
+		return cart_get(tree.left, v)
+
+def cart_upper_bound(tree, v):
+	if tree:
+		if tree.val <= v: return cart_upper_bound(tree.right, v)
+		bound = cart_upper_bound(tree.left, v)
+		return bound if bound is not None else tree.val
+
+def cart_lower_bound(tree, v):
+	if tree:
+		if tree.val > v: return cart_lower_bound(tree.left, v)
+		bound = cart_lower_bound(tree.right, v)
+		return bound if bound is not None else tree.val
 
 def cart_in(tree, v):
 	return bool(cart_get(tree, v))
