@@ -1,1 +1,1 @@
-map(int, input().split())
+map(int, sys.stdin.readline().split())

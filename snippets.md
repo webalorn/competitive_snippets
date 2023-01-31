@@ -106,16 +106,17 @@ TODO : split string, fft, see ulm book
 
 ## Code
 
--   `mainDefault`, `mainLarg` `mainShort`, `mainMini`, `mdfMain`
--   `utilPoints` (vectors, points as tuples)
--   `utilMath` (primes, pgcd, ppcm, fact, binom, is_palindrom)
--   `utilCollections` (with `argmin`, `argmax`, and for dicts, and uchain, l2str, `reindexer`)
--   `utilSearch` (upper_bound, lower_bound, range, is_in_sorted)
--   `utilCombi` (next_permutation, get_permuts)
+-   `main`,  `mainMini`
+-   `util_points_geo` (vectors, points as tuples, basic geometry)
+-   `util_math` (primes, pgcd, ppcm, fact, binom, is_palindrom)
+-   `util_collections` (with `argmin`, `argmax`, and for dicts, and uchain, l2str, `reindexer`)
+-   `util_search` (upper_bound, lower_bound, range, is_in_sorted)
+-   `util_combi` (next_permutation, get_permuts)
+-   `util_sequences_str` (prefixs, suffixs)
 -   Short names:
-    -   `cin`, `rcin`, `icin`,`micin` `cout`
+    -   `cin`, `cout`
     -   `rr`, `rint`,`rmint`, `lrmint`, `fprint`
-    -   `rfor`
+    -   `forr`, `foru`, `ford`
     -   (`read_print`)
     -   `struct` (With nammed tuple. Set with `a = a._replace(x=11, z=a.y)`)
 
@@ -134,16 +135,21 @@ May be required by some algorithms
     -   `algo_merge_sort`
     -   `algo_cumul`
     -   `algo_dicho`
+    -   `algo_cfc`
 -   Graph
     -   `algo_dfs`
-    -   `algo_bfs`
-    -   `algo_dij` (Dijkstra, à améliorer)
+    -   `algo_bfs ` (BFS + path)
+    -   `algo_dij` (Dijkstra + path)
     -   `algo_bellman_ford`
+    -   `algo_floyd_warshall`
+-   Flows, max-matching :`algo_max_matching`,  `algo_max_flow`, `algo_min_cut`, `algo_min_cost_max_flow`
+-   `convex_hull`  (Some other geometry in `util_points_geo`)
 -   Structures
     -   `str_cartesian_tree` (and `str_cartesian_tree_extras`)
     -   `str_heap`
     -   `str_graph`
     -   `str_deque`
+    -   `str_segtree`, `str_segtree_max`, `str_segtree_sum`
 
 ## Python useful functions
 

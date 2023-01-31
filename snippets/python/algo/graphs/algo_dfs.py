@@ -1,10 +1,8 @@
-dfs_last_seen = [-1 for _ in range(MAX_NODES)]
-dfs_round = 0
-
+dfs_seen = set()
 def do_dfs(node):
-	if dfs_last_seen[node] == dfs_round:
+	if node in dfs_seen:
 		return 0
-	dfs_last_seen[node] = dfs_round
+	dfs_seen.add(node)
 
 	all_results = []
 	for child in voisins[node]:

@@ -1,1 +1,1 @@
-list(map(int, input().split()))
+list(map(int, sys.stdin.readline().split()))

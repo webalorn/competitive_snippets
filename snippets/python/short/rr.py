@@ -1,1 +1,1 @@
-sys.stdin.readline().rstrip('\n')
+sys.stdin.readline().rstrip()

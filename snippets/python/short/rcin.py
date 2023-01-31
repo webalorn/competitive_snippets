@@ -1,1 +1,0 @@
-sys.stdin.readline().rstrip('\n')

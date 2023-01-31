@@ -1,18 +1,18 @@
-def merge_sort(l):
-	if len(l)<2: return l
-	n = len(l)//2
-	l1, l2 = merge_sort(l[:n]), merge_sort(l[n:])
-	i, j, n, m, l = 0, 0, len(l1), len(l2), []
+def merge_sort(seq):
+	if len(seq)<2: return seq
+	n = len(seq)//2
+	left, right = merge_sort(seq[:n]), merge_sort(seq[n:])
+	i, j, n, m, seq = 0, 0, len(left), len(right), []
 
 	while i < n and j < m:
-		if l1[i] < l2[j]: # Comparison
-			l.append(l1[i])
+		if left[i] < right[j]: # <Comparison>
+			seq.append(left[i])
 			i += 1
 		else:
-			l.append(l2[j])
+			seq.append(right[j])
 			j += 1
-	l.extend(l1[i:] + l2[j:])
-	
-	return l
+	seq.extend(left[i:])
+	seq.extend(right[j:])
+	return seq
 
 $0

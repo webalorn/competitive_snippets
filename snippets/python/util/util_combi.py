@@ -1,4 +1,4 @@
-def get_permuts(l,r=None): return list(itertools.permutations(l, r))
+def get_permuts(l,r=None): return list(permutations(l, r))
 
 def next_permutation(l):
 	i=len(l)-2

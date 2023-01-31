@@ -26,7 +26,7 @@ def get_primes_factors(n):
 def pgcd(a, b): return a if not b else pgcd(b, a%b)
 def ppcm(a, b): return a*b // pgcd(a, b)
 
-def fact(n): return reduce(lambda x,y:x*y, list(range(1,n+1)), 1)
+def fact(n): return reduce(lambda x,y:x*y, list(range(1,n+1)), 1) # Compute n!
 def binom(k, n): return fact(n) // (fact(k) * fact(n-k))
 def is_palindrom(n): return str(n) == str(n)[::-1]
 

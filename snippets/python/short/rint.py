@@ -1,1 +1,1 @@
-int(input())
+int(sys.stdin.readline())

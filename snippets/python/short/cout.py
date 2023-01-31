@@ -1,2 +1,2 @@
-sys.stdout.write(str($1))
+sys.stdout.write(f'{$1}\n')
 $0
